@@ -1,0 +1,15 @@
+{
+    "mysql":
+    {
+        "host":"localhost",
+        "user":"root",
+        "password":"123",
+        "database":"databaseA"
+    },
+    "server":
+    {
+        "ip":"127.0.0.1",
+        "port":16888,
+        "threadNum":4
+    }
+}

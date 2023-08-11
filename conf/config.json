@@ -1,0 +1,20 @@
+{
+    "mysql":
+    {
+        "host":"localhost",
+        "user":"root",
+        "password":"123",
+        "database":"databaseA"
+    },
+    "server":
+    {
+        "ip":"127.0.0.1",
+        "port":16888,
+        "threadNum":4
+    },
+    "extra":
+    {
+        "stopWordEngPath":"/home/daskisnow/SearchEngine/data/stop_words_eng.txt",
+        "stopWordZhPath":"/home/daskisnow/SearchEngine/data/stop_words_zh.txt"
+    }
+}
