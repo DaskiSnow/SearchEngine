@@ -1,114 +1,148 @@
 #include <func.hh>
-#include "Configuration.h"
-#include "cppjieba/Jieba.hpp"
+/* #include "Configuration.h" */
+#include "WebPageQuery.h"
+#include <mysql/mysql.h>
 using namespace std;
 
 // 配置文件的测试ok
-void test0(const string path)
+//void test0(const string path)
+//{
+//    Configuration * pConfig = Configuration::getInstance(path);
+//    cout << pConfig->port() << endl;
+//    cout << pConfig->threadNum() << endl;
+//    cout << pConfig->host() << endl;
+//    cout << pConfig->user() << endl;
+//    cout << pConfig->password() << endl;
+//    cout << pConfig->database() << endl;
+//    cout << pConfig->ip() << endl;
+//    set<string> eng = pConfig->getStopWordEngSet();
+//    set<string> zh = pConfig->getStopWordZhSet();
+//    for(const auto & str : eng)
+//    {
+//        cout << str << endl;
+//    }
+//    cout << "黄金分割线" << endl;
+//    for(const auto & str : zh)
+//    {
+//        cout << str << endl;
+//    }
+//}
+
+// WebPageQuery的分词测试
+//void test1()
+//{
+//    MYSQL * db = mysql_init(NULL);
+//    vector<string> res;
+//    WebPageQuery wpq(db);
+//    string queryWords = "初雪是个大笨蛋";
+//    res = wpq.splitStrToWords(queryWords);
+//    for(const auto & word : res)
+//    {
+//        cout << word << endl;
+//    }
+//}
+
+// WebPageQuery的数据库查询测试
+/* unordered_map<string, vector<vector<string>>> test2() */
+void test2()
 {
-    Configuration * pConfig = Configuration::getInstance(path);
-    cout << pConfig->port() << endl;
-    cout << pConfig->threadNum() << endl;
-    cout << pConfig->host() << endl;
-    cout << pConfig->user() << endl;
-    cout << pConfig->password() << endl;
-    cout << pConfig->database() << endl;
-    cout << pConfig->ip() << endl;
-    set<string> eng = pConfig->getStopWordEngSet();
-    set<string> zh = pConfig->getStopWordZhSet();
-    for(const auto & str : eng)
+    // 初始化MYSQ句柄
+    MYSQL * db = mysql_init(NULL);
+    char * host = "localhost";
+    char * user = "root";
+    char * password = "1688";
+    char * database = "webData";
+    MYSQL * ret = mysql_real_connect(db, host, user, password, database, 0, NULL, 0);
+    if(ret == NULL)
     {
-        cout << str << endl;
+        cerr << "Error:" << mysql_error(db) << endl;
+        exit(1);
     }
-    cout << "黄金分割线" << endl;
-    for(const auto & str : zh)
+
+    // 将invertedList整个表读取进来
+    char * sql = "select wId, word, docId, frequency, weight from invertedList";
+    int utf8;
+    utf8=mysql_query(db,"set character_set_results=utf8");
+    assert(utf8==0);
+    int qret = mysql_query(db, sql);
+    if(qret != 0)
     {
-        cout << str << endl;
+        cerr << "Error:" << mysql_error(db) << endl;
+        exit(1);
     }
-}
 
-// cppjieba的使用
-void test1()
-{
-    const char* const DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/jieba.dict.utf8";
-    const char* const HMM_PATH = "/home/daskisnow/SearchEngine/data/dict/hmm_model.utf8";
-    const char* const USER_DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/user.dict.utf8";
-    const char* const IDF_PATH = "/home/daskisnow/SearchEngine/data/dict/idf.utf8";
-    const char* const STOP_WORD_PATH = "/home/daskisnow/SearchEngine/data/dict/stop_words.utf8";
-     cppjieba::Jieba jieba(DICT_PATH,
-        HMM_PATH,
-        USER_DICT_PATH,
-        IDF_PATH,
-        STOP_WORD_PATH);
-  vector<string> words;
-  vector<cppjieba::Word> jiebawords;
-  string s;
-  string result;
+    // 倒排索引库:unordered_map<word, vector<wId, word, docId, frequency, weight>>
+    unordered_map<string, vector<vector<string>>> _invertIndexTable;  
+    MYSQL_RES * result = mysql_store_result(db);
+    MYSQL_ROW row;
+    int countNum = 0;
 
-  s = "他来到了网易杭研大厦";
-  cout << s << endl;
-  cout << "[demo] Cut With HMM" << endl;
-  jieba.Cut(s, words, true);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
+    // 读取并存储每一行为倒排索引的格式
+    while((row = mysql_fetch_row(result)) != NULL)
+    {
+        unordered_map<string,vector<vector<string>>>::iterator vec 
+            = _invertIndexTable.find(row[1]);
 
-  cout << "[demo] Cut Without HMM " << endl;
-  jieba.Cut(s, words, false);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
+        if(vec != _invertIndexTable.end())
+        {
+            // word已经存在, 插入
+            vector<string> tempVec;  
+            tempVec.push_back(row[0]);
+            tempVec.push_back(row[1]);
+            tempVec.push_back(row[2]);
+            tempVec.push_back(row[3]);
+            tempVec.push_back(row[4]);
+            vec->second.push_back(std::move(tempVec));
+        }
+        else
+        {
+            // word不存在, 创建并插入
+            vector<string> tempVec;  
+            tempVec.push_back(row[0]);
+            tempVec.push_back(row[1]);
+            tempVec.push_back(row[2]);
+            tempVec.push_back(row[3]);
+            tempVec.push_back(row[4]);
+            vector<vector<string>> tempVec2;
+            tempVec2.push_back(std::move(tempVec));
+            _invertIndexTable.insert({row[1], std::move(tempVec2)});
+        }
+    }
 
-   s = "我来到北京清华大学";
-  cout << s << endl;
-  cout << "[demo] CutAll" << endl;
-  jieba.CutAll(s, words);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
+    // 释放res
+    mysql_free_result(result);
 
-  //----------------------------------
-  s = "小明硕士毕业于中国科学院计算所，后在日本京都大学深造";
-  cout << s << endl;
-  cout << "[demo] CutForSearch" << endl;
-  jieba.CutForSearch(s, words);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
+    // 关闭连接
+    mysql_close(db);
 
+    // 读取测试
+    //auto tempVec = _invertIndexTable.find("新民");
+    //if(tempVec == _invertIndexTable.end())
+    //{
+    //    cout << "找不到" << endl;
+    //}
+    //else
+    //{
+    //    for(auto vec1 : tempVec->second)
+    //    {
+    //        for(auto item : vec1)
+    //        {
+    //            cout << item << endl;
+    //        }
+    //        cout << "同word的下一条" << endl;
+    //    }
+    //    cout << "找到了" << endl;
+    //}
 
-  cout << "[demo] Insert User Word" << endl;
-  jieba.Cut("男默女泪", words);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
-  jieba.InsertUserWord("男默女泪");
-  jieba.Cut("男默女泪", words);
-  cout << limonp::Join(words.begin(), words.end(), "/") << endl;
-
-  cout << "[demo] CutForSearch Word With Offset" << endl;
-  jieba.CutForSearch(s, jiebawords, true);
-  cout << jiebawords << endl;
-
-  cout << "[demo] Lookup Tag for Single Token" << endl;
-  const int DemoTokenMaxLen = 32;
-  char DemoTokens[][DemoTokenMaxLen] = {"拖拉机", "CEO", "123", "。"};
-  vector<pair<string, string> > LookupTagres(sizeof(DemoTokens) / DemoTokenMaxLen);
-  vector<pair<string, string> >::iterator it;
-  for (it = LookupTagres.begin(); it != LookupTagres.end(); it++) {
-	it->first = DemoTokens[it - LookupTagres.begin()];
-	it->second = jieba.LookupTag(it->first);
-  }
-  cout << LookupTagres << endl;
-
-  cout << "[demo] Tagging" << endl;
-  vector<pair<string, string> > tagres;
-  s = "我是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。";
-  jieba.Tag(s, tagres);
-  cout << s << endl;
-  cout << tagres << endl;
-
-  cout << "[demo] Keyword Extraction" << endl;
-  const size_t topk = 5;
-  vector<cppjieba::KeywordExtractor::Word> keywordres;
-  jieba.extractor.Extract(s, keywordres, topk);
-  cout << s << endl;
-  cout << keywordres << endl;
+    // 移动语义返回
+    return ;
 }
 
 int main(int argc, char* argv[])
 {
-    test1();
+    unordered_map<string, vector<vector<string>>> _invertIndexTable;
+    /* _invertIndexTable = std::move(test2()); */
+    test2();
     return 0;
 }
 
