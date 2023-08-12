@@ -1,4 +1,5 @@
 #include "WebPageQuery.h"
+#include "WebPage.h"
 
 /**
  * WebPageQuery implementation
@@ -8,11 +9,101 @@
 WebPageQuery::WebPageQuery(MYSQL * db) 
 : _db(db)
 , _jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH)
-{}
+{
+    // _pageLib的读取
+    // _invertIndexTable的读取
+    
+    
+}
 
 WebPageQuery::~WebPageQuery()
 {
     cout << "~WebPageQuery()" << endl;
+}
+
+void WebPageQuery::readPageLib()
+{
+    // 将WebPage整个表读取进来
+    char * sql = "select docId, url, title, description from webPage";
+    int utf8;
+    utf8=mysql_query(_db,"set character_set_results=utf8");
+    assert(utf8==0);
+    int qret = mysql_query(_db, sql);
+    if(qret != 0)
+    {
+        cerr << "Error:" << mysql_error(_db) << endl;
+        exit(1);
+    }
+
+    MYSQL_RES * result = mysql_store_result(_db);
+    MYSQL_ROW row;
+    mysql_free_result(result);
+    while((row = mysql_fetch_row(result)) != NULL)
+    {
+        
+    }
+}
+
+void WebPageQuery::readInvertIndexTable(string word)
+{
+    // 将invertedList整个表读取进来
+    char sql[1024] = {0};
+    sprintf(sql, "select wId, word, docId, frequency, weight from invertedList where word = '%s'", word.c_str());
+    cout << sql << endl;
+    // char * sql = "select wId, word, docId, frequency, weight from invertedList";
+    int utf8;
+    utf8=mysql_query(_db,"set character_set_results=utf8"); // 否则中文乱码
+    assert(utf8==0);
+    int qret = mysql_query(_db, sql);
+    if(qret != 0)
+    {
+        cerr << "Error:" << mysql_error(_db) << endl;
+        exit(1);
+    }
+
+    // 倒排索引库存储格式:
+    // unordered_map<word, vector<wId, word, docId, frequency, weight>>
+    MYSQL_RES * result = mysql_store_result(_db);
+    MYSQL_ROW row;
+
+    // 读取并存储每一行为倒排索引的格式
+    while((row = mysql_fetch_row(result)) != NULL)
+    {
+    cout <<"查询好结果了, 进入fetch_row循环" << endl; 
+        unordered_map<string,vector<vector<string>>>::iterator vec 
+            = _invertIndexTable.find(row[1]);
+
+        if(vec != _invertIndexTable.end())
+        {
+            cout << "存在插入" << endl;
+            // word已经存在, 插入
+            vector<string> tempVec;  
+            tempVec.push_back(row[0]);
+            tempVec.push_back(row[1]);
+            tempVec.push_back(row[2]);
+            tempVec.push_back(row[3]);
+            tempVec.push_back(row[4]);
+            vec->second.push_back(std::move(tempVec));
+        }
+        else
+        {
+            cout << "不存在插入" << endl;
+            // word不存在, 创建并插入
+            vector<string> tempVec;  
+            tempVec.push_back(row[0]);
+            tempVec.push_back(row[1]);
+            tempVec.push_back(row[2]);
+            tempVec.push_back(row[3]);
+            tempVec.push_back(row[4]);
+            vector<vector<string>> tempVec2;
+            tempVec2.push_back(std::move(tempVec));
+            _invertIndexTable.insert({row[1], std::move(tempVec2)});
+        }
+    }
+    cout << "循环结束" << endl;
+
+    // 释放res
+    mysql_free_result(result);
 }
 
 /**
@@ -24,7 +115,7 @@ string WebPageQuery::doQuery(const string & str)
     // 1. 分词: 得到N个关键词(ok)
     // 2. 计算每文章N个关键词的权重系数w', 并组成其特征向量
     // 2.1 根据关键词查询倒排索引库, 获取N个resultVec, 
-    //     存储为map<string, vec<...>> resVecs
+    //     存储为map<string, map<...>> resVecs
     // 2.2 获取每个关键字的(N个)章频, 存储为map<string, ull> df;
     // 2.3 获取每关键字每文章的词频, 存储为map<string, pair<int, ull>>
     // 2.3 docId取交集, 得到一个set<int>

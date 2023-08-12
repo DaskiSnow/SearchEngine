@@ -1,23 +1,19 @@
-/**
- * Project CPP
- */
-
-
 #include "WebPage.h"
-
-/**
- * WebPage implementation
- */
-
 
 /**
  * @param doc
  * @param config
  * @param jieba
  */
-void WebPage::WebPage(string & doc, Configuration & config config, WordSegmentation & jieba) {
-
-}
+WebPage::WebPage(int docid, 
+                 const string & docTitle, 
+                 const string & docContent,
+                 const string & docSummary) 
+: _docid(docid)
+, _docTitle(docTitle)
+, _docContent(docContent)
+, _docSummary(docSummary)
+{}
 
 /**
  * @return int
@@ -32,18 +28,4 @@ int WebPage::getDocid() {
  */
 string WebPage::summary(const vector<string> queryWords) {
     return "";
-}
-
-void WebPage::getWordsMap(): map<string, int> &() {
-
-}
-
-/**
- * @param doc
- * @param config
- * @param jieba
- * @return void
- */
-void WebPage::processDoc(const string & doc, Configuration & config, WordSegmentation& jieba) {
-    return;
 }

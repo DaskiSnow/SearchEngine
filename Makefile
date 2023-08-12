@@ -9,7 +9,7 @@ EXE := main
 
 CC := g++
 CFLAGS  := -Wall -g -std=c++11 #-fsanitize=leak
-LDFLAGS := -pthread  
+LDFLAGS := -pthread -lmysqlclient
 INCLUFLAGS:= $(addprefix -I, $(INCLUDE_DIR))
 CPPFLAGS:= #-DEBUG
 # 开启内存泄露检查功能：-fsanitize=leak
@@ -37,6 +37,7 @@ rebulid: clean out
 init:
 	mkdir -p $(SRC_DIR) $(OBJ_DIR)
 
-test_main:
-	g++ ./src/main.cc ./src/Configuration.cc -o test_main $(CFLAGS) $(INCLUFLAGS) $(LDFLAGS) $(CPPFLAGS)
+test:
+	g++ ./src/main.cc ./src/WebPageQuery.cc -o test $(CFLAGS) $(INCLUFLAGS) $(LDFLAGS) $(CPPFLAGS)
+
 

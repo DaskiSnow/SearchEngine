@@ -8,9 +8,9 @@ using namespace std;
 class WebPage {
 public: 
 WebPage(int docid, 
-        const string & _docTitle, 
-        const string & _docContent,
-        const string & _docSummary
+        const string & docTitle, 
+        const string & docContent,
+        const string & docSummary
         );
 int getDocid();
 string summary(const vector<string> queryWords);
@@ -25,7 +25,6 @@ private:
     string _docTitle;
     string _docContent;
     string _docSummary;
-    map<string, int> _wordsMap; // 该文章全部词的词频(待计算)
 };
 
 #endif //_WEBPAGE_H
