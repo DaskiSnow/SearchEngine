@@ -33,7 +33,7 @@ public:
     string returnNoAnswer();
     vector<string> splitStrToWords(string & str);
     void readInvertIndexTable(string word);
-    void readPageLib();
+    void readPageLib(string docId);
 
 private: 
     MYSQL * _db;

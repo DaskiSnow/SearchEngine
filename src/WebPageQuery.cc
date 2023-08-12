@@ -21,7 +21,7 @@ WebPageQuery::~WebPageQuery()
     cout << "~WebPageQuery()" << endl;
 }
 
-void WebPageQuery::readPageLib()
+void WebPageQuery::readPageLib(string docId)
 {
     // 将WebPage整个表读取进来
     char * sql = "select docId, url, title, description from webPage";

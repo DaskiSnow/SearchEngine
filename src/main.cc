@@ -193,7 +193,8 @@ void test4()
         cerr << "Error:" << mysql_error(db) << endl;
         exit(1);
     }
-    mysql_query(db,"select * from invertedList where word = '博物馆'");
+    mysql_query(db,"set names 'utf8'");
+    mysql_query(db,"select * from invertedList where word = '龟'");
     MYSQL_RES * result = mysql_store_result(db);
     MYSQL_ROW row;
     while((row = mysql_fetch_row(result)) != NULL)
