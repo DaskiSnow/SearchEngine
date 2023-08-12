@@ -10,13 +10,18 @@ WebPageQuery::WebPageQuery(MYSQL * db)
 , _jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH)
 {}
 
+WebPageQuery::~WebPageQuery()
+{
+    cout << "~WebPageQuery()" << endl;
+}
+
 /**
  * @param str
  * @return string
  */
 string WebPageQuery::doQuery(const string & str) 
 {
-    // 1. 分词: 得到N个关键词
+    // 1. 分词: 得到N个关键词(ok)
     // 2. 计算每文章N个关键词的权重系数w', 并组成其特征向量
     // 2.1 根据关键词查询倒排索引库, 获取N个resultVec, 
     //     存储为map<string, vec<...>> resVecs
@@ -37,6 +42,37 @@ string WebPageQuery::doQuery(const string & str)
     return "";
 }
 
+// 功能：对输入的查询语句, 进行分词
+// 输入: 查询语句
+// 输出: 分词后的结果
+vector<string> WebPageQuery::splitStrToWords(string & str)
+{
+    vector<string> words;
+    char * saveptr;
+    char pendingWords[1024] = {0}; 
+    vector<string> res;
+
+    // 1. 使用jieba进行分词
+    _jieba.CutForSearch(str, words);
+    string splitWords = limonp::Join(words.begin(), words.end(), "/");
+
+    // 2. 将结果进行切分, 并存储到vector<string> res中
+    strcpy(pendingWords, splitWords.c_str());
+    const char * token = strtok_r(pendingWords, "/", &saveptr);
+    res.push_back(token);
+    while(token != NULL)
+    {
+        token = strtok_r(NULL, "/", &saveptr);
+        if(token)
+        {
+            res.push_back(token);
+        }
+    }
+
+    // 3. 返回结果
+    return res;
+}
+
 bool WebPageQuery::executeQuery(const vector<string> & queryWords, 
                                 vector<pair<int,vector<double>>> &resultVec) 
 {
@@ -47,7 +83,7 @@ bool WebPageQuery::executeQuery(const vector<string> & queryWords,
  * @param queryWords
  * @return vector<double>
  */
-vector<double> 
+    vector<double> 
 WebPageQuery::getQueryWordsWeightVector(vector<string> & queryWords) 
 {
 
