@@ -83,6 +83,8 @@ flags = [
 '-isystem',
 '/usr/include/c++/10.2.0',
 '-isystem',
+'/usr/include/c++/11',
+'-isystem',
 '/usr/include',
 '-isystem',
 '/usr/include/x86_64-linux-gnu',
