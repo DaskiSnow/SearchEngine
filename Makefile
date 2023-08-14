@@ -38,6 +38,6 @@ init:
 	mkdir -p $(SRC_DIR) $(OBJ_DIR)
 
 test:
-	g++ ./src/main.cc ./src/WebPageQuery.cc -o test $(CFLAGS) $(INCLUFLAGS) $(LDFLAGS) $(CPPFLAGS)
+	g++ ./src/main.cc ./src/WebPageQuery.cc ./src/WebPage.cc -o test $(CFLAGS) $(INCLUFLAGS) $(LDFLAGS) $(CPPFLAGS)
 
 

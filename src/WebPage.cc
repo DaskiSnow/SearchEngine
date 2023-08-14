@@ -6,20 +6,22 @@
  * @param jieba
  */
 WebPage::WebPage(int docid, 
+                 const string & docUrl,
                  const string & docTitle, 
-                 const string & docContent,
-                 const string & docSummary) 
-: _docid(docid)
+                 const string & docDescription,
+                 const string & docContent)
+: _docId(docid)
+, _docUrl(docUrl)
 , _docTitle(docTitle)
+, _docDescription(docDescription)
 , _docContent(docContent)
-, _docSummary(docSummary)
 {}
 
 /**
  * @return int
  */
-int WebPage::getDocid() {
-    return 0;
+int WebPage::getDocId() const {
+    return _docId;
 }
 
 /**
