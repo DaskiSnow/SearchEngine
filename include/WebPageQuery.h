@@ -9,25 +9,23 @@
 #include <utility>
 #include <cmath>
 #include <algorithm>
+#include <mutex>
 #include <string.h>
 #include <mysql/mysql.h>
 #include "WebPage.h"
 #include "cppjieba/Jieba.hpp"
-using namespace std;
+#include "json.hpp"
 using WordSegmentation = cppjieba::Jieba;
+using json = nlohmann::json;
+using namespace std;
 
-const char* const DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/jieba.dict.utf8";
-const char* const HMM_PATH = "/home/daskisnow/SearchEngine/data/dict/hmm_model.utf8";
-const char* const USER_DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/user.dict.utf8";
-const char* const IDF_PATH = "/home/daskisnow/SearchEngine/data/dict/idf.utf8";
-const char* const STOP_WORD_PATH = "/home/daskisnow/SearchEngine/data/dict/stop_words.utf8";
 
 class WebPageQuery {
     friend void test3();
     friend void test5();
     friend void test6();
 public: 
-    WebPageQuery(MYSQL * db, WordSegmentation & jieba);
+    WebPageQuery(MYSQL * db, WordSegmentation & jieba, mutex & m);
     ~WebPageQuery();
     string doQuery(const string & str);
 
@@ -39,7 +37,7 @@ public:
                       const vector<string> & queryWords);
     string returnNoAnswer();
     vector<string> splitStrToWords(const string & str);
-    void addInvertIndex(string word);
+    int addInvertIndex(string word);
     void addPage(string docId);
     vector<double> getDocVec(const string & docId, 
                              const vector<string> & words);
@@ -58,9 +56,11 @@ public:
                     const vector<double> & baseVec,
                     const WebPage & pageA, 
                     const WebPage & pageB);
+    string toJsonStr(const vector<WebPage> & retPagesVec) const;
 private: 
     MYSQL * _db;
     WordSegmentation & _jieba;
+    mutex & _mutex;
     unsigned long long _docNum;
     vector<WebPage> _pages; // 需要转成json返回的网页集合
     unordered_map<string, WebPage> _pageLib; // 存储所需要的WebPage(表示docId的string)

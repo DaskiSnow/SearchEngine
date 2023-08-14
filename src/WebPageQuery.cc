@@ -6,17 +6,12 @@
  */
 
 
-WebPageQuery::WebPageQuery(MYSQL * db, WordSegmentation & jieba) 
+WebPageQuery::WebPageQuery(MYSQL * db, WordSegmentation & jieba, mutex & m) 
 : _db(db)
 , _jieba(jieba)
+, _mutex(m)
 , _docNum(getDocNum())
-{
-    
-    // _pageLib的读取
-    // _invertIndexTable的读取
-    
-    
-}
+{}
 
 WebPageQuery::~WebPageQuery()
 {
@@ -26,30 +21,35 @@ WebPageQuery::~WebPageQuery()
 // 功能: 获取文章总数 
 unsigned long long WebPageQuery::getDocNum()
 {
+    unsigned long long docNum = 0;
     char sql[1024] = {0};
     sprintf(sql, "select count(*) from webPage");   
-    int qret = mysql_query(_db, sql);
-    if(qret != 0)
     {
-        cerr << "Error:" << mysql_error(_db) << endl;
-        exit(1);
-    }
+        lock_guard<mutex> lock(_mutex); // 互斥取结果
 
-    unsigned long long docNum = 0;
-    MYSQL_RES * result = mysql_store_result(_db);
-    MYSQL_ROW row;
-    if((row = mysql_fetch_row(result)) != NULL)
-    {
-        docNum = stoull(row[0]);
+        int qret = mysql_query(_db, sql);
+        if(qret != 0)
+        {
+            cerr << "Error:" << mysql_error(_db) << endl;
+            exit(1);
+        }
+
+        MYSQL_RES * result = mysql_store_result(_db);
+        MYSQL_ROW row;
+        if((row = mysql_fetch_row(result)) != NULL)
+        {
+            docNum = stoull(row[0]);
+        }
+
+        // 释放res
+        mysql_free_result(result);
+
     }
-    
-    // 释放res
-    mysql_free_result(result);
 
     return docNum;
 }
 
-// ok
+// 功能: 查找网页库, 添加所需要的网页库记录
 void WebPageQuery::addPage(string docId)
 {
     // 该docId已经存在
@@ -62,92 +62,94 @@ void WebPageQuery::addPage(string docId)
     // 将WebPage的对应记录读取进来
     char sql[1024] = {0};
     sprintf(sql, "select docId, url, title, description, content from webPage where docId = '%s'", docId.c_str());
-    int qret = mysql_query(_db, sql);
-    if(qret != 0)
     {
-        cerr << "Error:" << mysql_error(_db) << endl;
-        exit(1);
+        lock_guard<mutex> lock(_mutex); // 互斥取结果
+        int qret = mysql_query(_db, sql);
+        if(qret != 0)
+        {
+            cerr << "Error:" << mysql_error(_db) << endl;
+            exit(1);
+        }
+
+        MYSQL_RES * result = mysql_store_result(_db);
+        MYSQL_ROW row;
+        while((row = mysql_fetch_row(result)) != NULL)
+        {
+            // 插入到_pages
+            _pages.push_back({stoi(row[0]), row[1], row[2], row[3], row[4]});
+        }
+
+        // 释放res
+        mysql_free_result(result);
     }
-
-    MYSQL_RES * result = mysql_store_result(_db);
-    MYSQL_ROW row;
-    while((row = mysql_fetch_row(result)) != NULL)
-    {
-        // 必然不存在, 插入(移动语义)
-        /* _pageLib.insert({row[0],{stoi(row[0]), row[1], row[2], row[3], row[4]}}); */
-
-        // 插入到_pages
-        _pages.push_back({stoi(row[0]), row[1], row[2], row[3], row[4]});
-
-    }
-
-    // 释放res
-    mysql_free_result(result);
 }
 
-// ok
-void WebPageQuery::addInvertIndex(string word)
+// 功能: 查找倒排索引库, 并添加所需要的记录
+int WebPageQuery::addInvertIndex(string word)
 {
     // 该word已经存在
     if(_invertIndexTable.find(word) != _invertIndexTable.end())
     {
-        return;
+        return 0;
     }
 
     // 将invertedListd的对应记录读取进来
     char sql[1024] = {0};
     sprintf(sql, "select wId, word, docId, frequency, weight from invertedList where word = '%s'", word.c_str());
-    cout << sql << endl;
+
     // char * sql = "select wId, word, docId, frequency, weight from invertedList";
-    int qret = mysql_query(_db, sql);
-    if(qret != 0)
     {
-        cerr << "Error:" << mysql_error(_db) << endl;
-        exit(1);
-    }
-
-    // 倒排索引库存储格式:
-    // unordered_map<word, vector<wId, word, docId, frequency, weight>>
-    MYSQL_RES * result = mysql_store_result(_db);
-    MYSQL_ROW row;
-
-    // 读取并存储每一行为倒排索引的格式
-    while((row = mysql_fetch_row(result)) != NULL)
-    {
-        cout <<"查询好结果了, 进入fetch_row循环" << endl; 
-        unordered_map<string,vector<vector<string>>>::iterator vec = _invertIndexTable.find(row[1]);
-
-        if(vec != _invertIndexTable.end())
+        lock_guard<mutex> lock(_mutex); // 互斥取结果
+        int qret = mysql_query(_db, sql);
+        if(qret != 0)
         {
-            cout << "存在插入" << endl;
-            // word已经存在, 插入
-            vector<string> tempVec;  
-            tempVec.push_back(row[0]);
-            tempVec.push_back(row[1]);
-            tempVec.push_back(row[2]);
-            tempVec.push_back(row[3]);
-            tempVec.push_back(row[4]);
-            vec->second.push_back(std::move(tempVec));
+            cerr << "Error:" << mysql_error(_db) << endl;
+            exit(1);
         }
-        else
-        {
-            cout << "不存在插入" << endl;
-            // word不存在, 创建并插入
-            vector<string> tempVec;  
-            tempVec.push_back(row[0]);
-            tempVec.push_back(row[1]);
-            tempVec.push_back(row[2]);
-            tempVec.push_back(row[3]);
-            tempVec.push_back(row[4]);
-            vector<vector<string>> tempVec2;
-            tempVec2.push_back(std::move(tempVec));
-            _invertIndexTable.insert({row[1], std::move(tempVec2)});
-        }
-    }
-    cout << "循环结束" << endl;
 
-    // 释放res
-    mysql_free_result(result);
+        // 倒排索引库存储格式:
+        MYSQL_RES * result = mysql_store_result(_db);
+        MYSQL_ROW row;
+        if(mysql_num_rows(result) == 0)
+        {
+            return -1;
+        }
+
+        // 读取并存储每一行为倒排索引的格式
+        while((row = mysql_fetch_row(result)) != NULL)
+        {
+            unordered_map<string,vector<vector<string>>>::iterator vec = _invertIndexTable.find(row[1]);
+
+            if(vec != _invertIndexTable.end())
+            {
+                // word已经存在, 插入
+                vector<string> tempVec;  
+                tempVec.push_back(row[0]);
+                tempVec.push_back(row[1]);
+                tempVec.push_back(row[2]);
+                tempVec.push_back(row[3]);
+                tempVec.push_back(row[4]);
+                vec->second.push_back(std::move(tempVec));
+            }
+            else
+            {
+                // word不存在, 创建并插入
+                vector<string> tempVec;  
+                tempVec.push_back(row[0]);
+                tempVec.push_back(row[1]);
+                tempVec.push_back(row[2]);
+                tempVec.push_back(row[3]);
+                tempVec.push_back(row[4]);
+                vector<vector<string>> tempVec2;
+                tempVec2.push_back(std::move(tempVec));
+                _invertIndexTable.insert({row[1], std::move(tempVec2)});
+            }
+        }
+
+        // 释放res
+        mysql_free_result(result);
+    }
+    return 0;
 }
 
 struct Compare
@@ -160,38 +162,23 @@ struct Compare
     map<string, vector<double>> * pdocVecs;
     vector<double> * pbaseVec;
 };
-/**
- * @param str
- * @return string
- */
+
 string WebPageQuery::doQuery(const string & str) 
 {
-    // 1. 分词: 得到N个关键词(ok)
-    // 2. 计算每文章N个关键词的权重系数w', 并组成其特征向量
-    // 2.1 根据关键词查询倒排索引库, 获取resultVec,(ok) 
-    //     存储为unmap<string, vec<vec<string>>> resVecs
-    // 2.2 获取每个关键字的(N个)章频, 存储为map<string, ull> df;(ok)
-    // 2.3 获取每关键字每文章的词频, 存储为map<string, pair<int, ull>>(ok)
-    // 2.3 docId取交集, 得到一个set<int>(ok)
-    // 2.4 计算每(交集)文章每关键字, 计算w'.(ok)
-    //     所有文章各自的特征向量存储为map<int, vec<double>>
-    // 3.1 计算基准向量Base, 存储为vec<double> 
-    // 3.2 计算余弦相似度, 存储为map<int, double>
-    // 3.3 加入到优先级队列
-    // 4. 取队列中前10个, 读取为vec<int> pre_output
-    // 5. 遍历pre_output, 根据docId查询_pageLib, 获取对应WebPage
-    //    存储为vec<WebPage>
-    // 6. 将所有WebPage转化为JSON格式
-    //    存储为string output;
-    // 7. 返回output;
-
     // 1. 分词
     vector<string> keywords = splitStrToWords(str);
 
     // 2. 添加所需的倒排索引记录
-    for(const auto & word : keywords)
+    for(size_t i = 0; i < keywords.size();)
     {
-        addInvertIndex(word);
+        if(addInvertIndex(keywords[i]) == -1)
+        {
+            keywords.erase(keywords.begin() + i);
+        }
+        else
+        {
+            ++i;
+        }
     }
 
     // 3. 根据已读取的倒排索引库记录, 获取交集后的docIds(string类型)
@@ -207,31 +194,49 @@ string WebPageQuery::doQuery(const string & str)
         addPage(docId);
         docVecs.insert({docId, getDocVec(docId, keywords)});
     }
-    
+
     // 6. 根据余弦相似度算法, 将可能需要的WebPage以优先级队列的方式进行存储
     Compare c;
     c.pwpq = this;
     c.pdocVecs = &docVecs;
     c.pbaseVec = &baseVec;
-    priority_queue<WebPage,vector<WebPage>, Compare> retPages(c);
+    priority_queue<WebPage,vector<WebPage>, Compare> priorityPages(c);
     for(const auto & page : _pages)
     {
-        retPages.push(page);
+        priorityPages.push(page);
     }
 
-    int cnt = 0;
+    // 7. 取前10个相似度最高的网页, 存储为retVec
+    vector<WebPage> retPagesVec;
+    size_t cnt = 0;
     while(cnt < 10)
     {
-        retPages.top().printWebPage();        
-        retPages.pop();
+        if(cnt >= priorityPages.size()) break;
+        retPagesVec.push_back(priorityPages.top());
+        //priorityPages.top().printWebPage();        
+        priorityPages.pop();
         cnt++;
     }
 
-    // 7. 转成JSON格式
-
-    return "haha";
+    // 8. 将retVec中的内容转成JSON格式的字符串, 并返回
+    return toJsonStr(retPagesVec);
 }
 
+// 功能: 将WebPage转化成JSON格式的字符串 
+string WebPageQuery::toJsonStr(const vector<WebPage> & retPagesVec) const 
+{
+    json j;
+    int cnt = 0;
+    for(const auto & page : retPagesVec)
+    {
+        string cntStr = to_string(cnt);
+        j[cntStr]["docUrl"] = page.getDocUrl();
+        j[cntStr]["docTitle"] = page.getDocTitle();
+        j[cntStr]["docDescription"] = page.getDocDescription();
+        cnt++;
+    }
+    return j.dump();
+}
 
 // 功能: 用于比较两个WebPage
 bool WebPageQuery::cmpWebPage(const map<string, vector<double>> & docVecs, 
@@ -267,7 +272,7 @@ double WebPageQuery::calcCosSim(const vector<double> & vecA, const vector<double
     double magnitudeA = calcMagnitude(vecA);
     double magnitudeB = calcMagnitude(vecB);
     double cosSim = dotProduct / (magnitudeA * magnitudeB);
-    
+
     return cosSim;
 }
 
@@ -329,7 +334,7 @@ vector<double> WebPageQuery::getBaseVec(const vector<string> & words)
 
     // 4. 返回baseVec
     return baseVec;
-    
+
 }
 
 // 功能: 获取交集后的docid集合
@@ -425,36 +430,6 @@ vector<string> WebPageQuery::splitStrToWords(const string & str)
     return res;
 }
 
-bool WebPageQuery::executeQuery(const vector<string> & queryWords, 
-                                vector<pair<int,vector<double>>> &resultVec) 
-{
-
-}
-
-/**
- * @param queryWords
- * @return vector<double>
- */
-    vector<double> 
-WebPageQuery::getQueryWordsWeightVector(vector<string> & queryWords) 
-{
-
-}
-
-/**
- * @param docIdVec
- * @param queryWords
- * @return string
- */
-string WebPageQuery::createJson(vector<int> & docIdVec, 
-                                const vector<string> & queryWords) 
-{
-    return "";
-}
-
-/**
- * @return string
- */
 string WebPageQuery::returnNoAnswer() 
 {
     return "";

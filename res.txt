@@ -1,0 +1,1322 @@
+select wId, word, docId, frequency, weight from invertedList where word = '中华'
+查询好结果了, 进入fetch_row循环
+不存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+循环结束
+select wId, word, docId, frequency, weight from invertedList where word = '民族'
+查询好结果了, 进入fetch_row循环
+不存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+循环结束
+select wId, word, docId, frequency, weight from invertedList where word = '中华民族'
+查询好结果了, 进入fetch_row循环
+不存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+查询好结果了, 进入fetch_row循环
+存在插入
+循环结束
+docid = 168
+url = http://theory.people.com.cn/n1/2021/0513/c40531-32101616.html
+title = 文化繁荣发展的生动图景（图说评论）
+description =          山西省稷山县西社镇清水庄村在村文化广场举行惠民演出，演出包括威风锣鼓、高台花鼓、稷山老调等节目，让百姓在家门口享受文化大餐。
+___________________________________________________
+docid = 3091
+url = http://book.people.com.cn/n1/2020/0203/c68880-31568718.html
+title = 人民出版社提前出版《中国疫苗百年纪实》电子书
+description =    图为《中国疫苗百年纪实》 主办方供图  人民网北京2月3日电 为增强抗疫决心与信心，升民智、养静气，人民出版社1月30日特别提前推出了主题图书《中国疫苗百年纪实》电子书，并已在学习强国、中国移动、掌阅、亚马逊及人民出版社读书会等多家数字平台同步上线，免费供公众阅读。
+___________________________________________________
+docid = 240
+url = http://culture.people.com.cn/n1/2021/0331/c1013-32065565.html
+title = 有一个故事，叫长江
+description =  　　图为长江远眺。
+___________________________________________________
+docid = 1076
+url = http://edu.people.com.cn/n1/2021/0512/c1053-32101289.html
+title = 习近平总书记给《文史哲》编辑部全体编辑人员回信在山东大学引起强烈反响
+description =    习近平给《文史哲》编辑部全体编辑人员的回信。
+___________________________________________________
+docid = 3902
+url = http://tw.people.com.cn/n1/2022/0304/c14657-32366622.html
+title = 台湾多个团体联合举办春祭缅怀抗日英烈先贤
+description =  　　新华社台北3月4日电（记者徐瑞青、何自力）3月3日，台湾多个团体在苗栗福星山公园联合举办春祭活动，缅怀抗日英烈先贤。
+___________________________________________________
+docid = 1791
+url = http://history.people.com.cn/n1/2019/0420/c363490-31040834.html
+title = 《伟大的渡江在靖江》新书发布暨弘扬“东线第一帆”精神研讨会在京举行
+description =  2019年4月20日下午，由中共靖江市委员会、人民日报社《国家人文历史》杂志社联合主办的《伟大的渡江在靖江》新书发布暨弘扬“东线第一帆”精神研讨会在北京人民日报社新媒体大厦举行。
+___________________________________________________
+docid = 640
+url = http://politics.people.com.cn/n1/2022/0329/c1001-32386316.html
+title = 这十年，总书记带领我们一起植树
+description =  　　深圳莲花山，迎风而立的一棵高山榕，华盖亭亭。
+___________________________________________________
+docid = 1790
+url = http://history.people.com.cn/n1/2019/0423/c198221-31045852.html
+title = 第25个“世界读书日” 在精神食粮里品味“茶香书香”
+description =  4月23日，全球读者共同迎来了第25个“世界读书日”。
+___________________________________________________
+docid = 1816
+url = http://history.people.com.cn/n1/2019/0326/c198221-30996802.html
+title = 四座城，四种舍，四种得
+description =  如果说中华大地是一幅融天公之巧、人意之智、万物之精的泼墨国画，那么那些名城佳邑，则无疑就是这副画作的“画眼”之所在。
+___________________________________________________
+docid = 2222
+url = http://game.people.com.cn/n1/2020/0730/c40130-31804412.html
+title = 冯士新：坚决抓好网络游戏防沉迷工作 着力加强精品生产
+description =    人民网北京7月30日电 （记者刘佳）中国国际数码互动娱乐展览会将在上海举办，中宣部出版局副局长冯士新表示，坚决抓好防沉迷工作，着力加强精品生产，始终严把内容关口，严格遵规守矩。
+___________________________________________________
+执行了一次 cnt=0
+执行了一次 cnt=1
+执行了一次 cnt=2
+执行了一次 cnt=3
+执行了一次 cnt=4
+执行了一次 cnt=5
+执行了一次 cnt=6
+执行了一次 cnt=7
+执行了一次 cnt=8
+执行了一次 cnt=9
+{"0":{"docDescription":"         山西省稷山县西社镇清水庄村在村文化广场举行惠民演出，演出包括威风锣鼓、高台花鼓、稷山老调等节目，让百姓在家门口享受文化大餐。","docTitle":"文化繁荣发展的生动图景（图说评论）","docUrl":"http://theory.people.com.cn/n1/2021/0513/c40531-32101616.html"},"1":{"docDescription":"   图为《中国疫苗百年纪实》 主办方供图  人民网北京2月3日电 为增强抗疫决心与信心，升民智、养静气，人民出版社1月30日特别提前推出了主题图书《中国疫苗百年纪实》电子书，并已在学习强国、中国移动、掌阅、亚马逊及人民出版社读书会等多家数字平台同步上线，免费供公众阅读。","docTitle":"人民出版社提前出版《中国疫苗百年纪实》电子书","docUrl":"http://book.people.com.cn/n1/2020/0203/c68880-31568718.html"},"2":{"docDescription":" 　　图为长江远眺。","docTitle":"有一个故事，叫长江","docUrl":"http://culture.people.com.cn/n1/2021/0331/c1013-32065565.html"},"3":{"docDescription":"   习近平给《文史哲》编辑部全体编辑人员的回信。","docTitle":"习近平总书记给《文史哲》编辑部全体编辑人员回信在山东大学引起强烈反响","docUrl":"http://edu.people.com.cn/n1/2021/0512/c1053-32101289.html"},"4":{"docDescription":" 　　新华社台北3月4日电（记者徐瑞青、何自力）3月3日，台湾多个团体在苗栗福星山公园联合举办春祭活动，缅怀抗日英烈先贤。","docTitle":"台湾多个团体联合举办春祭缅怀抗日英烈先贤","docUrl":"http://tw.people.com.cn/n1/2022/0304/c14657-32366622.html"},"5":{"docDescription":" 2019年4月20日下午，由中共靖江市委员会、人民日报社《国家人文历史》杂志社联合主办的《伟大的渡江在靖江》新书发布暨弘扬“东线第一帆”精神研讨会在北京人民日报社新媒体大厦举行。","docTitle":"《伟大的渡江在靖江》新书发布暨弘扬“东线第一帆”精神研讨会在京举行","docUrl":"http://history.people.com.cn/n1/2019/0420/c363490-31040834.html"},"6":{"docDescription":" 　　深圳莲花山，迎风而立的一棵高山榕，华盖亭亭。","docTitle":"这十年，总书记带领我们一起植树","docUrl":"http://politics.people.com.cn/n1/2022/0329/c1001-32386316.html"},"7":{"docDescription":" 4月23日，全球读者共同迎来了第25个“世界读书日”。","docTitle":"第25个“世界读书日” 在精神食粮里品味“茶香书香”","docUrl":"http://history.people.com.cn/n1/2019/0423/c198221-31045852.html"},"8":{"docDescription":" 如果说中华大地是一幅融天公之巧、人意之智、万物之精的泼墨国画，那么那些名城佳邑，则无疑就是这副画作的“画眼”之所在。","docTitle":"四座城，四种舍，四种得","docUrl":"http://history.people.com.cn/n1/2019/0326/c198221-30996802.html"},"9":{"docDescription":"   人民网北京7月30日电 （记者刘佳）中国国际数码互动娱乐展览会将在上海举办，中宣部出版局副局长冯士新表示，坚决抓好防沉迷工作，着力加强精品生产，始终严把内容关口，严格遵规守矩。","docTitle":"冯士新：坚决抓好网络游戏防沉迷工作 着力加强精品生产","docUrl":"http://game.people.com.cn/n1/2020/0730/c40130-31804412.html"}}
+~WebPageQuery()

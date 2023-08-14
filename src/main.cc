@@ -5,6 +5,11 @@
 #include <mysql/mysql.h>
 using namespace std;
 
+const char* const DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/jieba.dict.utf8";
+const char* const HMM_PATH = "/home/daskisnow/SearchEngine/data/dict/hmm_model.utf8";
+const char* const USER_DICT_PATH = "/home/daskisnow/SearchEngine/data/dict/user.dict.utf8";
+const char* const IDF_PATH = "/home/daskisnow/SearchEngine/data/dict/idf.utf8";
+const char* const STOP_WORD_PATH = "/home/daskisnow/SearchEngine/data/dict/stop_words.utf8";
 // 配置文件的测试ok
 //void test0(const string path)
 //{
@@ -256,7 +261,8 @@ void test6()
     }
     // 
     WordSegmentation jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH);
-    WebPageQuery wpq(db, jieba);
+    mutex m;
+    WebPageQuery wpq(db, jieba, m);
     vector<string> keywords = {"中华", "民主", "人民"};
     wpq.addInvertIndex("中华");
     wpq.addInvertIndex("民主");
@@ -329,21 +335,29 @@ void test7()
 {
     // 初始化MYSQ句柄
     MYSQL * db = mysql_init(NULL);
-    char * host = "localhost";
-    char * user = "root";
-    char * password = "1688";
-    char * database = "webData";
+    const char * host = "localhost";
+    const char * user = "root";
+    const char * password = "1688";
+    const char * database = "webData";
     MYSQL * ret = mysql_real_connect(db, host, user, password, database, 0, NULL, 0);
     if(ret == NULL)
     {
         cerr << "Error:" << mysql_error(db) << endl;
         exit(1);
     }
-    // 
-    WordSegmentation jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH);
-    WebPageQuery wpq(db, jieba);
-    wpq.doQuery("中华民族");
 
+    // 初始化结巴
+    WordSegmentation jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH);
+
+    mutex m;
+
+    // 初始化WebPageQuery
+    WebPageQuery wpq(db, jieba, m);
+    
+    // 执行查询, 获取Json格式的结果, 结果为所需要的10个网页信息
+    string JsonStr = wpq.doQuery("台湾");
+
+    cout << JsonStr << endl;
     mysql_close(db);
 }
 

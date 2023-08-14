@@ -16,8 +16,11 @@ WebPage(int docid,
         const string & docContent
         );
 int getDocId() const;
-string summary(const vector<string> queryWords);
-map<string, int> & getWordsMap(); // 返回_wordsMap
+string getDocUrl() const;
+string getDocTitle() const;
+string getDocDescription() const;
+string getDocContent() const;
+string getDes(const string &s1, const string &s2);
 void printWebPage() const 
 {
     printf("docid = %d\n"
