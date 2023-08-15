@@ -245,91 +245,91 @@ const char* const STOP_WORD_PATH = "/home/daskisnow/SearchEngine/data/dict/stop_
 //}
 
 // 测试WebPageQuery的getDocVec
-void test6()
-{
-    // 初始化MYSQ句柄
-    MYSQL * db = mysql_init(NULL);
-    char * host = "localhost";
-    char * user = "root";
-    char * password = "1688";
-    char * database = "webData";
-    MYSQL * ret = mysql_real_connect(db, host, user, password, database, 0, NULL, 0);
-    if(ret == NULL)
-    {
-        cerr << "Error:" << mysql_error(db) << endl;
-        exit(1);
-    }
-    // 
-    WordSegmentation jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH);
-    mutex m;
-    WebPageQuery wpq(db, jieba, m);
-    vector<string> keywords = {"中华", "民主", "人民"};
-    wpq.addInvertIndex("中华");
-    wpq.addInvertIndex("民主");
-    wpq.addInvertIndex("人民");
-    cout << "执行完addInvertIndex" << endl; 
-    
-    // 取交集处理
-    set<string> interDocIds;    // docId的交集
-    for(const auto & p : wpq._invertIndexTable)
-    {
-        // 新词的新集合
-        set<string> tempDocIds; 
-        for(const auto & item : p.second)
-        {
-            tempDocIds.insert(item[2]);    
-        }
-
-        if(interDocIds.size() == 0)
-        {
-            // 首个集合先全部加入到interDocIds中
-            interDocIds = std::move(tempDocIds); 
-        }
-        else
-        {
-            // 非首个集合则与interDocIds取交集
-            set<string> tempinterDocIds;
-            set_intersection(interDocIds.begin(), interDocIds.end(), tempDocIds.begin(), tempDocIds.end(), 
-                             inserter(tempinterDocIds, tempinterDocIds.begin()));
-            // 置换interDocIds
-            interDocIds = std::move(tempinterDocIds);
-        }
-    }
-
-    // 添加所需要的Page(交集)
-    for(const auto & docId : interDocIds)
-    {
-        wpq.addPage(docId);
-    }
-
-    //for(const auto & p : wpq._invertIndexTable)
-    //{
-    //    cout << "获取一个p" << endl; 
-    //    for(const auto & item : p.second)
-    //    {
-    //        cout << "addPage " << item[2] << endl;
-    //        wpq.addPage(item[2]);   // 记录的字段:wId, word, docId, frequency, weight
-    //    }
-    //}
-
-    vector<double> docVec;
-    for(const auto & page: wpq._pageLib)
-    {
-        cout << "开始获取文章向量" << endl;
-        docVec = wpq.getDocVec(page.first, keywords); // 隐含移动语义
-        break;  // 测试一个文章的向量
-    }
-
-    // 打印文章向量
-    for(const auto & num : docVec)
-    {
-        cout << num << " ";
-    }
-    cout << endl;
-
-
-    mysql_close(db);
-}
+//void test6()
+//{
+//    // 初始化MYSQ句柄
+//    MYSQL * db = mysql_init(NULL);
+//    char * host = "localhost";
+//    char * user = "root";
+//    char * password = "1688";
+//    char * database = "webData";
+//    MYSQL * ret = mysql_real_connect(db, host, user, password, database, 0, NULL, 0);
+//    if(ret == NULL)
+//    {
+//        cerr << "Error:" << mysql_error(db) << endl;
+//        exit(1);
+//    }
+//    // 
+//    WordSegmentation jieba(DICT_PATH, HMM_PATH, USER_DICT_PATH, IDF_PATH, STOP_WORD_PATH);
+//    mutex m;
+//    WebPageQuery wpq(db, jieba, m);
+//    vector<string> keywords = {"中华", "民主", "人民"};
+//    wpq.addInvertIndex("中华");
+//    wpq.addInvertIndex("民主");
+//    wpq.addInvertIndex("人民");
+//    cout << "执行完addInvertIndex" << endl; 
+//    
+//    // 取交集处理
+//    set<string> interDocIds;    // docId的交集
+//    for(const auto & p : wpq._invertIndexTable)
+//    {
+//        // 新词的新集合
+//        set<string> tempDocIds; 
+//        for(const auto & item : p.second)
+//        {
+//            tempDocIds.insert(item[2]);    
+//        }
+//
+//        if(interDocIds.size() == 0)
+//        {
+//            // 首个集合先全部加入到interDocIds中
+//            interDocIds = std::move(tempDocIds); 
+//        }
+//        else
+//        {
+//            // 非首个集合则与interDocIds取交集
+//            set<string> tempinterDocIds;
+//            set_intersection(interDocIds.begin(), interDocIds.end(), tempDocIds.begin(), tempDocIds.end(), 
+//                             inserter(tempinterDocIds, tempinterDocIds.begin()));
+//            // 置换interDocIds
+//            interDocIds = std::move(tempinterDocIds);
+//        }
+//    }
+//
+//    // 添加所需要的Page(交集)
+//    for(const auto & docId : interDocIds)
+//    {
+//        wpq.addPage(docId);
+//    }
+//
+//    //for(const auto & p : wpq._invertIndexTable)
+//    //{
+//    //    cout << "获取一个p" << endl; 
+//    //    for(const auto & item : p.second)
+//    //    {
+//    //        cout << "addPage " << item[2] << endl;
+//    //        wpq.addPage(item[2]);   // 记录的字段:wId, word, docId, frequency, weight
+//    //    }
+//    //}
+//
+//    vector<double> docVec;
+//    for(const auto & page: wpq._pageLib)
+//    {
+//        cout << "开始获取文章向量" << endl;
+//        docVec = wpq.getDocVec(page.first, keywords); // 隐含移动语义
+//        break;  // 测试一个文章的向量
+//    }
+//
+//    // 打印文章向量
+//    for(const auto & num : docVec)
+//    {
+//        cout << num << " ";
+//    }
+//    cout << endl;
+//
+//
+//    mysql_close(db);
+//}
 
 void test7()
 {
@@ -363,7 +363,6 @@ void test7()
 
 int main(int argc, char* argv[])
 {
-    /* test6(); */
     test7();
     return 0;
 }

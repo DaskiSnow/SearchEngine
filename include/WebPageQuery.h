@@ -21,9 +21,6 @@ using namespace std;
 
 
 class WebPageQuery {
-    friend void test3();
-    friend void test5();
-    friend void test6();
 public: 
     WebPageQuery(MYSQL * db, WordSegmentation & jieba, mutex & m);
     ~WebPageQuery();

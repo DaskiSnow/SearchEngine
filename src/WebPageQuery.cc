@@ -15,7 +15,7 @@ WebPageQuery::WebPageQuery(MYSQL * db, WordSegmentation & jieba, mutex & m)
 
 WebPageQuery::~WebPageQuery()
 {
-    cout << "~WebPageQuery()" << endl;
+    /* cout << "~WebPageQuery()" << endl; */
 }
 
 // 功能: 获取文章总数 
@@ -87,7 +87,7 @@ void WebPageQuery::addPage(string docId)
 // 功能: 查找倒排索引库, 并添加所需要的记录
 int WebPageQuery::addInvertIndex(string word)
 {
-    cout << "index添加:" << word <<endl;
+    /* cout << "index添加:" << word <<endl; */
     // 该word已经存在
     if(_invertIndexTable.find(word) != _invertIndexTable.end())
     {
@@ -168,11 +168,11 @@ string WebPageQuery::doQuery(const string & str)
 {
     // 1. 分词
     vector<string> keywords = splitStrToWords(str);
-    for(size_t i = 0; i < keywords.size(); ++i)
-    {
-        cout << keywords[i] << endl;
-        cout << "----------------------" << endl;
-    }
+    //for(size_t i = 0; i < keywords.size(); ++i)
+    //{
+    //    cout << keywords[i] << endl;
+    //    cout << "----------------------" << endl;
+    //}
     // 2. 添加所需的倒排索引记录
     for(size_t i = 0; i < keywords.size();)
     {
@@ -185,18 +185,18 @@ string WebPageQuery::doQuery(const string & str)
             ++i;
         }
     }
-    cout << "添加索引后" << endl;
-    for(auto it : _invertIndexTable)
-    {
-        cout << it.first << endl;
-    }
-    cout << "------------------------" << endl;
+    /* cout << "添加索引后" << endl; */
+    //for(auto it : _invertIndexTable)
+    //{
+    //    cout << it.first << endl;
+    //}
+    /* cout << "------------------------" << endl; */
     // 3. 根据已读取的倒排索引库记录, 获取交集后的docIds(string类型)
     set<string> innerDocIds = getInnerDocId();
 
     // 4. 计算基准向量
     vector<double> baseVec = getBaseVec(keywords);
-    cout << "baseVec.len = " << baseVec.size() << endl;
+    /* cout << "baseVec.len = " << baseVec.size() << endl; */
 
     // 5. 获取待对比的所有文章向量, 存储为docVecs
     map<string, vector<double>> docVecs; // map<docId, 文章向量>
@@ -292,7 +292,7 @@ double WebPageQuery::calcDotProduct(const vector<double> & vecA, const vector<do
 {
     if(vecA.size() != vecB.size())
     {
-        cerr << "calcDotProduct: mismatched length!" << endl;
+        /* cerr << "calcDotProduct: mismatched length!" << endl; */
         return -1;
     }
 
@@ -321,13 +321,13 @@ vector<double> WebPageQuery::getBaseVec(const vector<string> & words)
 {
     // 1. 获取每个word的DF(TF=1), 并计算其IDF
     vector<double> baseVec;
-    cout << "getBaseVec" << endl;
+    /* cout << "getBaseVec" << endl; */
     for(const auto & word : words)
     {
         auto it = _invertIndexTable.find(word);
         if(it == _invertIndexTable.end())
         {
-            cout << "没有这个词："<< word << endl;
+            /* cout << "没有这个词："<< word << endl; */
             break;
         }
         unsigned long long df = it->second.size();      // 获取word的DF
@@ -413,7 +413,7 @@ vector<double> WebPageQuery::getDocVec(const string & docId, const vector<string
         }
         /* cout << "该词的倒排索引记录检查了"  << num << endl; */
     }
-    cout << "某文章向量长度=" << res.size() << endl;
+    /* cout << "某文章向量长度=" << res.size() << endl; */
     return res;
 }
 

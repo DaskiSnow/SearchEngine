@@ -6,8 +6,6 @@
 using namespace std;
 
 class WebPage {
-friend void test5();
-friend void test6();
 public: 
 WebPage(int docid, 
         const string & docUrl,
