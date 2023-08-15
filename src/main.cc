@@ -355,7 +355,7 @@ void test7()
     WebPageQuery wpq(db, jieba, m);
     
     // 执行查询, 获取Json格式的结果, 结果为所需要的10个网页信息
-    string JsonStr = wpq.doQuery("台湾");
+    string JsonStr = wpq.doQuery("中国共产党");
 
     cout << JsonStr << endl;
     mysql_close(db);
